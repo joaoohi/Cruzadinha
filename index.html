@@ -588,31 +588,36 @@ function verify() {
     var answer = input_answer.value;
 
     if (answer != '') {
-        // answer = answer.toLowerCase();
         if (answer == special_words[cont_correctAnswer]) {
+            div_verifiedAnswer.classList.remove('wrongAnswer');
             div_verifiedAnswer.classList.add('correctAnswer');
             div_verifiedAnswer.innerHTML = '<br>Resposta Correta!';
             cont_correctAnswer++;
-        }
-        else {
+        } else {
+            div_verifiedAnswer.classList.remove('correctAnswer');
             div_verifiedAnswer.classList.add('wrongAnswer');
             div_verifiedAnswer.innerHTML = '<br>Resposta Incorreta, tente novamente';
         }
+
+      
         setTimeout(function () {
             div_verifiedAnswer.style.display = 'block';
         }, 500);
 
+  
         setTimeout(function () {
             div_verifiedAnswer.style.display = 'none';
         }, 3000);
 
         input_answer.value = '';
         gameSequence();
-    }
-    else {
+    } else {
         alert('Por Favor, digite uma resposta na caixa de texto');
     }
-}</script>
+}
+
+
+</script>
 </body>
 
 </html>
